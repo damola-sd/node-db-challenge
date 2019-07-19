@@ -43,6 +43,30 @@ server.post('/api/projects/:id/action', async(req, res) => {
     }
 })
 
+server.put('/api/projects/:id', async ( req, res) => {
+    try {
+        const project = await dbConnect.updateProject(req.params.id, req.body);
+        res.status(201).send(project);
+
+    } catch (error) {
+        res.status(501).json({
+            message: error.toString()
+        })
+    }
+})
+
+server.delete('/api/projects/:id', async ( req, res) => {
+    try {
+        const project = await dbConnect.deleteProject(req.params.id);
+        res.status(201).send(project);
+
+    } catch (error) {
+        res.status(501).json({
+            message: error.toString()
+        })
+    }
+})
+
 server.listen(PORT, () => {
     console.log(`Listening on ${PORT}`);
 });

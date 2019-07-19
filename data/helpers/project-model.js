@@ -5,7 +5,9 @@ const db = knex(require('../../knexfile').development);
 module.exports = {
     addProject,
     addAction,
-    getProjectById
+    getProjectById,
+    updateProject,
+    deleteProject
 }
 
 function addProject(project) {
@@ -24,4 +26,12 @@ function getProjectById(id) {
                 .select('projects.projectName', 'actions.description', 'actions.notes', 'actions.completed')
                 .where( { "project_id": id });
     return actions;
+}
+
+function updateProject(id, changes) {
+    return db(projects).where({ id }).update(changes);
+}
+
+function deleteProject(id) {
+    return db(projects).where({ id }).del();
 }
