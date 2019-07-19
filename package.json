@@ -1,0 +1,28 @@
+{
+  "name": "db-challenge",
+  "version": "1.0.0",
+  "description": "Sprint challenge(Project Management)",
+  "main": "index.js",
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damola-sd/node-db-challenge.git"
+  },
+  "keywords": [
+    "Project",
+    "Actions"
+  ],
+  "author": "Damola Adewunmi",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/damola-sd/node-db-challenge/issues"
+  },
+  "homepage": "https://github.com/damola-sd/node-db-challenge#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.19.0",
+    "sqlite": "^3.0.3"
+  }
+}
