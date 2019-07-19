@@ -1,4 +1,4 @@
-const knex = require(knex);
+const knex = require('knex');
 const db = knex(require('../../knexfile').development);
 
 
@@ -17,7 +17,11 @@ function addAction(action) {
 }
 
 function getProjectById(id) {
-    return db('projects')
-        .join('actions', 'projects.id', 'actions.project_id')
-        .where({ 'projects.id': id });
+    let project,actions = [];
+    project = db('projects').where({ id });
+    actions = db('actions')
+                .join('projects', 'actions.project_id', 'projects.id')
+                .select('projects.projectName', 'actions.description', 'actions.notes', 'actions.completed')
+                .where( { "project_id": id });
+    return actions;
 }

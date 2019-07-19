@@ -10,7 +10,7 @@ server.use(express.json());
 server.get('/api/projects/:id', async ( req, res) => {
     try {
         const project = await dbConnect.getProjectById(req.params.id);
-        res.status(201).json(project);
+        res.status(201).send(project);
 
     } catch (error) {
         res.status(501).json({
